@@ -26,9 +26,9 @@ let store = new ItemsStore();
 AppDispatcher.register((action) => {
   switch(action.actionType) {
     case ITEMS_GET_SUCCESS:
-      store.setAll(action.items);
+      store.setAll(action.users);
       break;
-    default:
+      default:
   }
 });
 

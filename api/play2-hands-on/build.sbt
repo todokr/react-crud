@@ -10,6 +10,7 @@ libraryDependencies ++= Seq(
   //  jdbc,
   //  cache,
   //  ws,
+  filters,
   specs2 % Test,
   "com.h2database" % "h2" % "1.4.177",
   "com.typesafe.play" %% "play-slick" % "1.0.0"

@@ -7,8 +7,8 @@ export default class BaseStore extends EventEmitter {
     this.data = new Set([]);
   }
 
-  setAll(items) {
-    this.data = new Set(items);
+  setAll(users) {
+    this.data = new Set(users);
     this.emitChange();
   }
 
@@ -23,8 +23,8 @@ export default class BaseStore extends EventEmitter {
     }
   }
 
-  remove(item) {
-    this.data.delete(item);
+  remove(user) {
+    this.data.delete(user);
     this.emitChange();
   }
 }

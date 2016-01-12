@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 
 function getAppState() {
   return {
-    items: ItemsStore.getAll()
+    users: ItemsStore.getAll()
   };
 }
 
@@ -16,22 +16,25 @@ export default class App extends React.Component {
   state = getAppState()
 
   componentDidMount() {
+    console.info('App is mounted!');
     ItemsStore.addChangeListener(this.onChange);
     AppActions.getItems();
   }
 
   componentWillUnmount() {
+    console.info('App is unmounted!');
     ItemsStore.removeChangeListener(this.onChange);
   }
 
   onChange = () => {
+    console.info('App state is changed!');
     this.setState(getAppState());
   }
 
   render() {
     return (
       <div className={styles.app}>
-        <Body items={this.state.items} />
+        <Body users={this.state.users} />
         <Footer />
       </div>
     );

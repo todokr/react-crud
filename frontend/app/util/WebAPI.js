@@ -1,3 +1,5 @@
+import Request from 'axios';
+
 export default {
   getItems() {
     return new Promise((resolve) => {
@@ -11,16 +13,13 @@ export default {
       }, 500);
     });
   },
-  getUsers() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(['Hoge', 'Fuga', 'Piyo'].map((name, i) => {
-          return {
-            id: i,
-            name: name
-          };
-        }));
-      }, 500);
-    });
+
+  getPosts() {
+    return Request.get('http://localhost:9000/json/list');
+  },
+
+  createPost(data) {
+    return Request.post('http://jsonplaceholder.typicode.com/posts', data);   
   }
+
 };
