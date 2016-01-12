@@ -1,0 +1,5 @@
+/* _mixins.scss */
+
+@mixin sample-padding-mixin($some-number) {
+  padding: $some-number;
+}
