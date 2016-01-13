@@ -1,6 +1,7 @@
 import styles from './_UserList.scss';
 import React from 'react';
 import User from './User';
+import UserInput from './UserInput';
 import AppActions from '../../actions/AppActions';
 
 let { Component, PropTypes } = React;
@@ -18,7 +19,9 @@ export default class UserList extends Component {
   render() {
     return (
       <div>
-         <a href="#" className={styles.button} onClick={this._add} >Add</a>
+        <UserInput
+            onSave={this.handleSave.bind(this)}
+                    />
          <ul className={styles.users}>
             {this.props.users.map((user) => {
               return (<User key={user.id} user={user} />);
@@ -26,5 +29,9 @@ export default class UserList extends Component {
          </ul>
        </div>
     );
-  }
+  };
+
+    handleSave(user) {
+        AppActions.createUser(user);
+    }
 }

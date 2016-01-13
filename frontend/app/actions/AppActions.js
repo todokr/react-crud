@@ -8,8 +8,8 @@ import {
 } from '../constants/AppConstants';
 
 export default {
-  getItems() {
-    WebAPI.getPosts()
+  getUsers: () => {
+    WebAPI.getUsers()
       .then((res) => {
         AppDispatcher.dispatch({
           actionType: ITEMS_GET_SUCCESS,
@@ -18,6 +18,20 @@ export default {
       }).catch(() => {
         AppDispatcher.dispatch({
           actionType: ITEMS_GET_ERROR
+        });
+      });
+  },
+
+  createUser: (user) => {
+    WebAPI.createUser(user)
+      .then((res) => {
+        AppDispatcher.dispatch({
+          actionType: USER_CREATE_SUCCESS,
+          user: res.data.user
+        });
+      }).catch(() => {
+        AppDispatcher.dispatch({
+          actionType: ITEM_CREATE_ERROR
         });
       });
   }

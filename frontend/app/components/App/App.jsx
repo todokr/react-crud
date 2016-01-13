@@ -18,7 +18,7 @@ export default class App extends React.Component {
   componentDidMount() {
     console.info('App is mounted!');
     ItemsStore.addChangeListener(this.onChange);
-    AppActions.getItems();
+    AppActions.getUsers();
   }
 
   componentWillUnmount() {
