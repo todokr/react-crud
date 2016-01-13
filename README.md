@@ -3,4 +3,4 @@
 ## Using
 - React 0.14
 - WebPack
-- SuperAgent
+- axios
