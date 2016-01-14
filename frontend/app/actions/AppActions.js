@@ -2,9 +2,10 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 import WebAPI from '../util/WebAPI';
 
 import {
-  ITEMS_GET_SUCCESS,
-  ITEMS_GET_ERROR,
-  ITEMS_CREATE_SUCCESS
+  USERS_GET_SUCCESS,
+  USERS_GET_ERROR,
+  USER_UPDATED,
+  USER_CREATE_ERROR
 } from '../constants/AppConstants';
 
 export default {
@@ -12,26 +13,33 @@ export default {
     WebAPI.getUsers()
       .then((res) => {
         AppDispatcher.dispatch({
-          actionType: ITEMS_GET_SUCCESS,
+          actionType: USERS_GET_SUCCESS,
           users: res.data.users
         });
       }).catch(() => {
         AppDispatcher.dispatch({
-          actionType: ITEMS_GET_ERROR
+          actionType: USERS_GET_ERROR
         });
       });
   },
 
   createUser: (user) => {
     WebAPI.createUser(user)
-      .then((res) => {
-        AppDispatcher.dispatch({
-          actionType: USER_CREATE_SUCCESS,
-          user: res.data.user
-        });
+      .then(() => {
+        this.getUsers()
+          .then((res) => {
+            AppDispatcher.dispatch({
+              actionType: USERS_GET_SUCCESS,
+              users: res.data.user
+            });
+          }).catch(() => {
+          AppDispatcher.dispatch({
+            actionType: USERS_GET_ERROR
+          });
+        })
       }).catch(() => {
         AppDispatcher.dispatch({
-          actionType: ITEM_CREATE_ERROR
+          actionType: USER_CREATE_ERROR
         });
       });
   }

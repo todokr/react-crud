@@ -33,5 +33,6 @@ export default class UserList extends Component {
 
     handleSave(user) {
         AppActions.createUser(user);
+        AppActions.getUsers();
     }
 }

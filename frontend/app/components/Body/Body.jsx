@@ -22,7 +22,6 @@ export default class Body extends React.Component {
          <h1 className={styles.header}>React CRUD Sample</h1>
          <p>This is an example CRUD app, powered by React, axios &amp; webpack with ES6/7 syntax.</p>
          <section>
-           <h3>Users</h3>
            <UserList users={this.props.users}/>
          </section>
        </div>

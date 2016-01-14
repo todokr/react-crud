@@ -1,29 +1,30 @@
 .users  {
   padding: 20px 10px 40px;
-}
 
-a {
-  display: block;
-  color: #44d;
-  text-decoration: none;
-  :hover {
-    opacity: .8;
+  a {
+    display: block;
+    color: #44d;
+    text-decoration: none;
+    padding: 18px 15px;
+    border-top: 1px #ddd solid;
+    font-size: 16px;
+    :hover {
+      opacity: .8;
+    }
+  }
+
+  li:last-child a {
+    border-bottom: 1px #ddd solid;
   }
 }
 
-li + li {
-  margin-top: 10px;
-  padding-top: 25px;
-  border-top: 1px #dadada solid;
-}
-
-.title {
+.name {
   display: inline-block;
   margin: 0px;
   margin-left: 10px;
 }
 
-.postId {
+.userId {
   color: #aaa;
 }
 
@@ -35,4 +36,59 @@ li + li {
   color: #444;
   background: #fafafa;
   font-size: 16px;
+}
+
+.form {
+  padding: 20px;
+  background: #f3f3f3;
+  box-shadow: 0 1px 0 darken(#f3f3f3, 10%);
+  text-align: right;
+  color: #666;
+
+  a {
+    display: inline-block;
+    padding: 0 24px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 4px;
+    background: #00d4b4;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    top: -3px;
+    box-shadow: 0 3px 0 darken(#00d4b4, 10%);
+    &:hover {
+      top: -2px;
+      box-shadow: 0 2px 0 darken(#00d4b4, 10%);
+    }
+  }
+
+  * + * {
+    margin-left: 15px;
+  }
+
+  input {
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    width: 400px;
+    padding: 0 10px;
+    border: 1px #ddd solid;
+    box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
+    border-radius: 4px;
+  }
+
+  select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    background: #fff;
+    border: none;
+    box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
+  }
+
 }

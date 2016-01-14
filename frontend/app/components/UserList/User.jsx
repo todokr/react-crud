@@ -19,8 +19,8 @@ export default class User extends Component {
         return (
             <li>
               <a href="#" onClick={this.onItemClick}>
-                <small className={styles.postId}>#{this.props.user.id}</small>
-                <h3 className={styles.title}>{this.props.user.name}</h3>
+                <small className={styles.userId}>#{this.props.user.id}</small>
+                <h3 className={styles.name}>{this.props.user.name}</h3>
               </a>
             </li>
         );

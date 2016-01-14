@@ -2,22 +2,22 @@ import BaseStore from './BaseStore';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
 import {
-  ITEMS_UPDATED,
-  ITEMS_GET_SUCCESS
+  USERS_GET_SUCCESS,
+  USER_UPDATED
 } from '../constants/AppConstants';
 
 class ItemsStore extends BaseStore {
 
   emitChange() {
-    this.emit(ITEMS_UPDATED);
+    this.emit(USER_UPDATED);
   }
 
   addChangeListener(callback) {
-    this.on(ITEMS_UPDATED, callback);
+    this.on(USER_UPDATED, callback);
   }
 
   removeChangeListener(callback) {
-    this.removeListener(ITEMS_UPDATED, callback);
+    this.removeListener(USER_UPDATED, callback);
   }
 }
 
@@ -25,7 +25,8 @@ let store = new ItemsStore();
 
 AppDispatcher.register((action) => {
   switch(action.actionType) {
-    case ITEMS_GET_SUCCESS:
+    case USERS_GET_SUCCESS:
+      console.log('update invoked.');
       store.setAll(action.users);
       break;
       default:
