@@ -37,26 +37,25 @@
 }
 
 .form {
-  padding: 20px;
+  padding: 15px 20px;
   background: $paper-grey-300;
   box-shadow: 0 3px 0 $paper-grey-400;
   text-align: center;
-  color: #666;
 
   a {
     display: inline-block;
     padding: 0 24px;
-    height: 45px;
-    line-height: 45px;
+    height: 38px;
+    line-height: 38px;
     border-radius: 4px;
     background: $paper-teal-a700;
     color: #fff;
     text-decoration: none;
     position: relative;
-    top: -3px;
+    top: -2px;
     box-shadow: 0 3px 0 darken($paper-teal-a700, 6%);
     &:hover {
-      top: -2px;
+      top: -1px;
       box-shadow: 0 2px 0 darken($paper-teal-a700, 6%);
     }
   }
@@ -67,8 +66,8 @@
 
   input {
     display: inline-block;
-    height: 45px;
-    line-height: 45px;
+    height: 40px;
+    line-height: 40px;
     width: 400px;
     padding: 0 10px;
     border: 1px #ddd solid;
@@ -81,12 +80,13 @@
     -moz-appearance: button;
     appearance: button;
     display: inline-block;
-    height: 45px;
-    line-height: 45px;
+    height: 40px;
+    line-height: 40px;
     padding: 0 20px;
     background: #fff;
     border: none;
     box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
+    border-radius: 4px;
   }
 
 }

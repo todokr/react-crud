@@ -34,10 +34,9 @@ export default class UserInput extends Component {
         />
         <select
           name="companyId"
-          selected={this.state.user.companyId}
+          value={this.state.user.companyId}
           onChange={this.handleChange.bind(this)}
         >
-          <option selected disabled>Select Company</option>
           <option value="1">会社A</option>
           <option value="2">会社B</option>
           <option value="3">会社C</option>
