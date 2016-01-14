@@ -1,13 +1,11 @@
-.users  {
-  padding: 20px 10px 40px;
+@import "toolkit";
 
+.users  {
   a {
     display: block;
-    color: #44d;
-    text-decoration: none;
     padding: 18px 15px;
-    border-top: 1px #ddd solid;
-    font-size: 16px;
+    border-bottom: 1px $border-color solid;
+    font-size: 12px;
     :hover {
       opacity: .8;
     }
@@ -25,7 +23,7 @@
 }
 
 .userId {
-  color: #aaa;
+  color: $paper-grey-500;
 }
 
 .button {
@@ -40,9 +38,9 @@
 
 .form {
   padding: 20px;
-  background: #f3f3f3;
-  box-shadow: 0 1px 0 darken(#f3f3f3, 10%);
-  text-align: right;
+  background: $paper-grey-300;
+  box-shadow: 0 3px 0 $paper-grey-400;
+  text-align: center;
   color: #666;
 
   a {
@@ -51,15 +49,15 @@
     height: 45px;
     line-height: 45px;
     border-radius: 4px;
-    background: #00d4b4;
+    background: $paper-teal-a700;
     color: #fff;
     text-decoration: none;
     position: relative;
     top: -3px;
-    box-shadow: 0 3px 0 darken(#00d4b4, 10%);
+    box-shadow: 0 3px 0 darken($paper-teal-a700, 6%);
     &:hover {
       top: -2px;
-      box-shadow: 0 2px 0 darken(#00d4b4, 10%);
+      box-shadow: 0 2px 0 darken($paper-teal-a700, 6%);
     }
   }
 

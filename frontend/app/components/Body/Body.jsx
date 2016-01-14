@@ -20,7 +20,7 @@ export default class Body extends React.Component {
      return (
        <div className={styles.body}>
          <h1 className={styles.header}>React CRUD Sample</h1>
-         <p>This is an example CRUD app, powered by React, axios &amp; webpack with ES6/7 syntax.</p>
+         <p className={styles.lead}>This is an example CRUD app, powered by React, axios &amp; webpack with ES6/7 syntax.</p>
          <section>
            <UserList users={this.props.users}/>
          </section>

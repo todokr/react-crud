@@ -2,11 +2,19 @@
 
 .body {
   font-size: 20px;
-  padding: 40px;
 }
 
 .header {
-  border-bottom: 1px solid $border-color;
-  margin: 0 0 20px 0;
-  padding-bottom: 20px;
+  padding: 20px 30px 15px;
+  font-size: 30px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQUlEQVQYV2Nk2L/0PwNh0MBIhMIGBgYGggrBikAW4jMRrgifQhRFuBRiKMKmEKsidIU4FSErxKsIprAeFgT4wh0AyvEgaXuT+5QAAAAASUVORK5CYII=) repeat;
+  box-shadow: 0 4px 0 darken($paper-teal-a700, 4%);
+  color: #fff;
+  text-shadow:
+          0 -1px 0 darken($paper-teal-300, 10%),
+          0  1px 0 lighten($paper-teal-300, 10%);
+}
+
+.lead {
+  padding: 10px 30px;
 }

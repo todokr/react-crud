@@ -6,7 +6,7 @@ let {Component, PropTypes} = React;
 export default class UserInput extends Component {
 
   static defaultProps = {
-    user: { id: 9999}
+    user: { id: 9999 }
   };
 
   static propTypes = {
@@ -37,6 +37,7 @@ export default class UserInput extends Component {
           selected={this.state.user.companyId}
           onChange={this.handleChange.bind(this)}
         >
+          <option selected disabled>Select Company</option>
           <option value="1">会社A</option>
           <option value="2">会社B</option>
           <option value="3">会社C</option>
@@ -58,7 +59,6 @@ export default class UserInput extends Component {
   };
 
   add() {
-
     this.props.onSave(this.state.user);
     this.setState({user: {}});
   };

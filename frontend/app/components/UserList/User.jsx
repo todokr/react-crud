@@ -20,7 +20,7 @@ export default class User extends Component {
             <li>
               <a href="#" onClick={this.onItemClick}>
                 <small className={styles.userId}>#{this.props.user.id}</small>
-                <h3 className={styles.name}>{this.props.user.name}</h3>
+                <h3 className={styles.name}>{this.props.user.name}</h3> - {this.props.user.companyId}
               </a>
             </li>
         );

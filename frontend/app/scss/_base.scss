@@ -1,12 +1,29 @@
 /* _base.scss */
+@import "colors";
 
 html, body {
   margin: 0;
   min-height: 100%;
+  color: $paper-grey-800;
 }
 
 ul, li {
   padding: 0px;
   margin: 0px;
   list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+
+a {
+  color: $paper-blue-a700;
+  text-decoration: none;
+}
+
+small {
+  font-size: inherit;
 }
