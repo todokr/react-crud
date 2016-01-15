@@ -17,30 +17,28 @@ export default {
           users: res.data.users
         });
       }).catch(() => {
-        AppDispatcher.dispatch({
-          actionType: USERS_GET_ERROR
-        });
+      AppDispatcher.dispatch({
+        actionType: USERS_GET_ERROR
       });
+    });
   },
 
   createUser: (user) => {
-    WebAPI.createUser(user)
-      .then(() => {
-        this.getUsers()
-          .then((res) => {
-            AppDispatcher.dispatch({
-              actionType: USERS_GET_SUCCESS,
-              users: res.data.user
-            });
-          }).catch(() => {
-          AppDispatcher.dispatch({
-            actionType: USERS_GET_ERROR
-          });
-        })
+    WebAPI.createUser(user).then(() => {
+      this.getUsers().then((res) => {
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_SUCCESS,
+          users: res.data.user
+        });
       }).catch(() => {
         AppDispatcher.dispatch({
-          actionType: USER_CREATE_ERROR
+          actionType: USERS_GET_ERROR
         });
+      })
+    }).catch(() => {
+      AppDispatcher.dispatch({
+        actionType: USER_CREATE_ERROR
       });
+    });
   }
 };

@@ -3,7 +3,6 @@ import React from 'react';
 import UserList from '../UserList/UserList';
 
 
-
 let { PropTypes } = React;
 
 export default class Body extends React.Component {
@@ -16,15 +15,16 @@ export default class Body extends React.Component {
     users: PropTypes.array.isRequired
   };
 
-   render() {
-     return (
-       <div className={styles.body}>
-         <h1 className={styles.header}>React CRUD Sample</h1>
-         <p className={styles.lead}>This is an example CRUD app, powered by React, axios &amp; webpack with ES6/7 syntax.</p>
-         <section>
-           <UserList users={this.props.users}/>
-         </section>
-       </div>
-     );
-   }
+  render() {
+    return (
+      <div className={styles.body}>
+        <h1 className={styles.header}>React CRUD Sample</h1>
+        <p className={styles.lead}>This is an example CRUD app, powered by React, axios &amp; webpack with ES6/7
+          syntax.</p>
+        <section>
+          <UserList users={this.props.users}/>
+        </section>
+      </div>
+    );
+  }
 }

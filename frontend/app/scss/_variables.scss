@@ -1,3 +1,34 @@
 /* _variables.scss */
+@import "colors";
 
-$border-color: #eee;
+// button size
+$btn-xs: 10px;
+$btn-s : 13px;
+$btn-m : 16px;
+$btn-l : 19px;
+$btn-xl: 22px;
+
+// button type
+$btn-default: $paper-grey-300;
+$btn-primary: $paper-teal-a700;
+$btn-danger : $paper-red-300;
+
+@mixin btn($fz: $btn-m, $type: $btn-primary) {
+  display: inline-block;
+  padding: 0 $fz * 1.2;
+  height: $fz * 2;
+  line-height: $fz * 2;
+  border-radius: $fz / 4;
+  background: $type;
+  color: $paper-grey-50;
+  text-decoration: none;
+  position: relative;
+  top: -2px;
+  box-shadow: 0 3px 0 darken($type, 6%);
+  font-size: $fz;
+  &:hover {
+    top: -1px;
+    box-shadow: 0 2px 0 darken($type, 6%);
+  }
+}
+

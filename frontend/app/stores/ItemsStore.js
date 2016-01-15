@@ -3,7 +3,9 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 
 import {
   USERS_GET_SUCCESS,
-  USER_UPDATED
+  USERS_GET_ERROR,
+  USER_UPDATED,
+  USER_CREATE_ERROR
 } from '../constants/AppConstants';
 
 class ItemsStore extends BaseStore {
@@ -24,12 +26,23 @@ class ItemsStore extends BaseStore {
 let store = new ItemsStore();
 
 AppDispatcher.register((action) => {
-  switch(action.actionType) {
-    case USERS_GET_SUCCESS:
+  console.log(action.actionType);
+  switch (action.actionType) {
+    case USER_UPDATED:
       console.log('update invoked.');
       store.setAll(action.users);
       break;
-      default:
+    case USERS_GET_SUCCESS:
+      console.log('list invoked.');
+      store.setAll(action.users);
+      break;
+    case USERS_GET_ERROR:
+      console.error('User get failed.');
+      break;
+    case USER_CREATE_ERROR:
+      console.error('User create failed.');
+      break;
+    default:
   }
 });
 

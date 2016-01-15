@@ -34,7 +34,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <Body users={this.state.users} />
+        <Body users={this.state.users}/>
         <Footer />
       </div>
     );

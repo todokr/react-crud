@@ -1,25 +1,65 @@
 @import "toolkit";
 
-.users  {
-  a {
+.body {
+  padding-bottom: 70px;
+  position: relative;
+}
+
+.users {
+  .userInner {
     display: block;
-    padding: 18px 15px;
+    height: 64px;
+    line-height: 64px;
+    padding: 0 15px;
     border-bottom: 1px $border-color solid;
     font-size: 12px;
     :hover {
       opacity: .8;
+    }
+
+    > * + * {
+      margin-left: 10px;
     }
   }
 
   li:last-child a {
     border-bottom: 1px #ddd solid;
   }
+
+  input {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    padding: 0 10px;
+    border: 1px #ddd solid;
+    box-shadow: 0 1px 0 darken(#ddd, 10%) inset;
+    border-radius: 2px;
+  }
+
+  select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #fff;
+    border: 1px #ddd solid;
+    box-shadow: 0 1px 0 darken(#ddd, 10%) inset;
+    border-radius: 2px;
+  }
+
+  .save {@include btn($btn-xs, $btn-primary);}
+  .cancel {@include btn($btn-xs, $btn-default);}
+  .delete {@include btn($btn-xs, $btn-danger);}
 }
 
 .name {
   display: inline-block;
-  margin: 0px;
-  margin-left: 10px;
+  width: 200px;
+  color: $paper-grey-700;
 }
 
 .userId {
@@ -37,31 +77,18 @@
 }
 
 .form {
-  padding: 15px 20px;
+  height: 65px;
+  line-height: 65px;
   background: $paper-grey-300;
   box-shadow: 0 3px 0 $paper-grey-400;
   text-align: center;
 
-  a {
-    display: inline-block;
-    padding: 0 24px;
-    height: 38px;
-    line-height: 38px;
-    border-radius: 4px;
-    background: $paper-teal-a700;
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-    top: -2px;
-    box-shadow: 0 3px 0 darken($paper-teal-a700, 6%);
-    &:hover {
-      top: -1px;
-      box-shadow: 0 2px 0 darken($paper-teal-a700, 6%);
-    }
+  > * + * {
+    margin-left: 15px;
   }
 
-  * + * {
-    margin-left: 15px;
+  a {
+    @include btn();
   }
 
   input {
@@ -82,11 +109,14 @@
     display: inline-block;
     height: 40px;
     line-height: 40px;
-    padding: 0 20px;
+    padding: 0 10px;
     background: #fff;
-    border: none;
+    border: 1px #ddd solid;
     box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
     border-radius: 4px;
   }
 
 }
+
+
+

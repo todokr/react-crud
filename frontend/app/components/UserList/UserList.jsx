@@ -9,30 +9,31 @@ let { Component, PropTypes } = React;
 export default class UserList extends Component {
 
   static defaultProps = {
-      users: []
+    users: []
   };
 
   static propTypes = {
     users: PropTypes.array.isRequired
   };
 
+
   render() {
     return (
-      <div>
+      <div className={styles.body}>
         <UserInput
-            onSave={this.handleSave.bind(this)}
-                    />
-         <ul className={styles.users}>
-            {this.props.users.map((user) => {
-              return (<User key={user.id} user={user} />);
-            }, this)}
-         </ul>
-       </div>
+          onSave={this.handleSave.bind(this)}
+        />
+        <ul className={styles.users}>
+          {this.props.users.map((user) => {
+            return (<User key={user.id} user={user} onSave={this.handleSave.bind(this)}/>);
+          }, this)}
+        </ul>
+      </div>
     );
   };
 
-    handleSave(user) {
-        AppActions.createUser(user);
-        AppActions.getUsers();
-    }
+  handleSave = (user) => {
+    AppActions.createUser(user);
+    AppActions.getUsers();
+  }
 }

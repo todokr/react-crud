@@ -1,5 +1,7 @@
 import styles from './_UserList.scss';
 import React from 'react';
+import EditingUser from './EditingUser';
+import ShowingUser from './ShowingUser';
 
 
 let { Component, PropTypes } = React;
@@ -7,24 +9,47 @@ let { Component, PropTypes } = React;
 export default class User extends Component {
 
   static propTypes = {
-    user: PropTypes.object.isRequired
+    user: PropTypes.object.isRequired,
+    onSave: PropTypes.func.isRequired
   };
 
-  onItemClick = (e) => {
+  state = {
+    isEditing: false,
+    user: this.props.user
+  };
+
+  edit = (e) => {
     e.preventDefault();
-    window.alert('You clicked ' + this.props.user.name);
+    this.setState({isEditing: true});
   };
 
-    render() {
-        return (
-            <li>
-              <a href="#" onClick={this.onItemClick}>
-                <small className={styles.userId}>#{this.props.user.id}</small>
-                <h3 className={styles.name}>{this.props.user.name}</h3> - {this.props.user.companyId}
-              </a>
-            </li>
-        );
+  save = (e, data) => {
+    e.preventDefault();
+    this.setState({
+      isEditing: false,
+      user: data
+    });
+    this.props.onSave(data);
+  };
+
+  render() {
+    var u;
+    console.log(`state is ${this.state.isEditing}`);
+    if(this.state.isEditing) {
+      u = <EditingUser
+        user={this.props.user}
+        onSave={this.edit}
+      />;
+    } else {
+      u = <ShowingUser
+        user={this.props.user}
+        onEdit={this.edit}
+      />;
     }
 
+    return (
+      <li>{u}</li>
+    );
+  }
 
 }
