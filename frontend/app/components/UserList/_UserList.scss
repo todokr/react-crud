@@ -11,7 +11,7 @@
     height: 64px;
     line-height: 64px;
     padding: 0 15px;
-    border-bottom: 1px $border-color solid;
+    border-bottom: 1px rgba(0, 0, 0, $dark-divider-opacity) solid;
     font-size: 12px;
     :hover {
       opacity: .8;
