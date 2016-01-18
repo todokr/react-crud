@@ -21,7 +21,6 @@ export default class ShowingUser extends Component {
   render() {
     return (
       <a href="#" className={styles.userInner} onClick={this.handleClick}>
-        <small className={styles.userId}>#{this.props.user.id}</small>
         <h3 className={styles.name}>{this.props.user.name}</h3> - {this.props.user.companyId}
       </a>
     );

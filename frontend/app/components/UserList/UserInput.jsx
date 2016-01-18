@@ -52,9 +52,8 @@ export default class UserInput extends Component {
   };
 
   handleChange = (e) => {
-    var val = e.target.value;
-    val = (val === '' || isNaN(+val)) ? val : +val;
-    this.state.user[e.target.name] = val;
+    const strVal = e.target.value;
+    this.state.user[e.target.name] = (strVal === '' || isNaN(Number(strVal))) ? strVal : Number(strVal);
     this.setState(this.state);
   };
 

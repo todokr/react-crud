@@ -1,10 +1,9 @@
 import styles from './_UserList.scss';
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import User from './User';
 import UserInput from './UserInput';
 import AppActions from '../../actions/AppActions';
 
-let { Component, PropTypes } = React;
 
 export default class UserList extends Component {
 
@@ -16,7 +15,6 @@ export default class UserList extends Component {
     users: PropTypes.array.isRequired
   };
 
-
   render() {
     return (
       <div className={styles.body}>
@@ -25,7 +23,7 @@ export default class UserList extends Component {
         />
         <ul className={styles.users}>
           {this.props.users.map((user) => {
-            return (<User key={user.id} user={user} onSave={this.handleSave.bind(this)}/>);
+            return (<User key={user.id} user={user} onSave={this.handleSave.bind(this)} onDelete={this.handleDelete.bind(this)}/>);
           }, this)}
         </ul>
       </div>
@@ -34,6 +32,9 @@ export default class UserList extends Component {
 
   handleSave = (user) => {
     AppActions.createUser(user);
-    AppActions.getUsers();
+  }
+
+  handleDelete = (user) => {
+    AppActions.deleteUser(user);
   }
 }

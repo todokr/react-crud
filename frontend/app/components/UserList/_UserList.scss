@@ -13,6 +13,7 @@
     padding: 0 15px;
     border-bottom: 1px rgba(0, 0, 0, $dark-divider-opacity) solid;
     font-size: 12px;
+    position: relative;
     :hover {
       opacity: .8;
     }
@@ -20,10 +21,6 @@
     > * + * {
       margin-left: 10px;
     }
-  }
-
-  li:last-child a {
-    border-bottom: 1px #ddd solid;
   }
 
   input {
@@ -38,9 +35,6 @@
   }
 
   select {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
     display: inline-block;
     height: 30px;
     line-height: 30px;
@@ -54,6 +48,14 @@
   .save {@include btn($btn-xs, $btn-primary);}
   .cancel {@include btn($btn-xs, $btn-default);}
   .delete {@include btn($btn-xs, $btn-danger);}
+
+  .deleteWrapper {
+    display: inline-block;
+    height: 65px;
+    position: absolute;
+    right: 30px;
+    top: 0;
+  }
 }
 
 .name {

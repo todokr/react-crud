@@ -1,7 +1,5 @@
 import styles from './_UserList.scss';
-import React from 'react';
-
-let { Component, PropTypes } = React;
+import React, {Component, PropTypes} from 'react';
 
 export default class EditingUser extends Component {
 
@@ -15,7 +13,9 @@ export default class EditingUser extends Component {
 
   static propTypes = {
     user: PropTypes.object,
-    onSave: PropTypes.func.isRequired
+    onSave: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,17 +26,10 @@ export default class EditingUser extends Component {
     }
   };
 
-  edit = (e) => {
-    e.preventDefault();
-    this.state.isEditing = true;
-    console.log(`state is ${this.state.isEditing}`);
-  };
-
 
   render() {
     return (
       <div className={styles.userInner}>
-        <small className={styles.userId}>#{this.props.user.id}</small>
         <input
           placeholder='User Name'
           name="name"
@@ -52,8 +45,9 @@ export default class EditingUser extends Component {
           <option value="2">Brilliant co.,ltd.</option>
           <option value="3">Colorful Corporation</option>
         </select>
-        <a href="#" className={styles.save}>Save</a>
-        <a href="#" className={styles.delete}>Delete</a>
+        <a href="#" className={styles.save} onClick={this.props.onSave.bind(this)}>Save</a>
+        <a href="#" className={styles.cancel} onClick={this.props.onCancel}>Cancel</a>
+        <span className={styles.deleteWrapper}><a href="#" className={styles.delete} onClick={this.props.onDelete}>Delete</a></span>
       </div>
     );
   }

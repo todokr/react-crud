@@ -16,18 +16,15 @@ export default class App extends React.Component {
   state = getAppState()
 
   componentDidMount() {
-    console.info('App is mounted!');
     ItemsStore.addChangeListener(this.onChange);
     AppActions.getUsers();
   }
 
   componentWillUnmount() {
-    console.info('App is unmounted!');
     ItemsStore.removeChangeListener(this.onChange);
   }
 
   onChange = () => {
-    console.info('App state is changed!');
     this.setState(getAppState());
   }
 

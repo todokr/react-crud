@@ -1,16 +1,14 @@
 import styles from './_UserList.scss';
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import EditingUser from './EditingUser';
 import ShowingUser from './ShowingUser';
-
-
-let { Component, PropTypes } = React;
 
 export default class User extends Component {
 
   static propTypes = {
     user: PropTypes.object.isRequired,
-    onSave: PropTypes.func.isRequired
+    onSave: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
   };
 
   state = {
@@ -23,6 +21,16 @@ export default class User extends Component {
     this.setState({isEditing: true});
   };
 
+  cancel = (e) => {
+    e.preventDefault();
+    this.setState({isEditing: false});
+  };
+
+  toggle = (e) => {
+    e.preventDefault();
+    this.setState({isEditing:! this.state.isEditing});
+  };
+
   save = (e, data) => {
     e.preventDefault();
     this.setState({
@@ -32,23 +40,21 @@ export default class User extends Component {
     this.props.onSave(data);
   };
 
+  delete = (e) => {
+    e.preventDefault();
+    this.setState({
+      isEditing: false
+    });
+    this.props.onDelete(this.props.user);
+  };
+
   render() {
-    var u;
-    console.log(`state is ${this.state.isEditing}`);
-    if(this.state.isEditing) {
-      u = <EditingUser
-        user={this.props.user}
-        onSave={this.edit}
-      />;
-    } else {
-      u = <ShowingUser
-        user={this.props.user}
-        onEdit={this.edit}
-      />;
-    }
+    const userItem = (this.state.isEditing) ?
+      <EditingUser user={this.props.user} onSave={this.edit} onCancel={this.toggle} onDelete={this.delete} /> :
+      <ShowingUser user={this.props.user} onEdit={this.toggle} />;
 
     return (
-      <li>{u}</li>
+      <li>{userItem}</li>
     );
   }
 

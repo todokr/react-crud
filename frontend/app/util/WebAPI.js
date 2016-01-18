@@ -7,6 +7,10 @@ export default {
 
   createUser(user) {
     return Request.post('http://localhost:9000/json/create', user);
+  },
+
+  deleteUser(id) {
+    return Request.post(`http://localhost:9000/json/remove/${id}`);
   }
 
 };

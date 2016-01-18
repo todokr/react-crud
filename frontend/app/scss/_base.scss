@@ -27,3 +27,11 @@ a {
 small {
   font-size: inherit;
 }
+
+input,select,textarea {
+  box-sizing: border-box;
+}
+
+select {
+  appearance: none;
+}
