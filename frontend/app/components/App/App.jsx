@@ -13,7 +13,7 @@ function getAppState() {
 
 export default class App extends React.Component {
 
-  state = getAppState()
+  state = getAppState();
 
   componentDidMount() {
     ItemsStore.addChangeListener(this.onChange);

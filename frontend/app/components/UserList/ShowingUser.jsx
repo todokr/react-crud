@@ -8,7 +8,7 @@ export default class ShowingUser extends Component {
   static defaultProps = {
     user: {
       id: 9999,
-      name: "",
+      name: '',
       companyId: 1
     }
   };

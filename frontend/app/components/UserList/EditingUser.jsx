@@ -6,7 +6,7 @@ export default class EditingUser extends Component {
   static defaultProps = {
     user: {
       id: 9999,
-      name: "",
+      name: '',
       companyId: 1
     }
   };

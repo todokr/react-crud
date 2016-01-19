@@ -19,10 +19,10 @@ export default {
           users: res.data.users
         });
       }).catch(() => {
-      AppDispatcher.dispatch({
-        actionType: USERS_GET_ERROR
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_ERROR
+        });
       });
-    });
   },
 
   createUser: (user) => {
