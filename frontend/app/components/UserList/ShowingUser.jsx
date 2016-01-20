@@ -18,15 +18,15 @@ export default class ShowingUser extends Component {
     onEdit: PropTypes.func.isRequired
   };
 
-  render() {
+  render = () => {
     return (
       <a href="#" className={styles.userInner} onClick={this.handleClick}>
         <h3 className={styles.name}>{this.props.user.name}</h3> - {this.props.user.companyId}
       </a>
     );
-  }
+  };
 
   handleClick = (e) => {
     this.props.onEdit(e);
-  }
+  };
 }

@@ -1,9 +1,6 @@
 import styles from './_Body.scss';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import UserList from '../UserList/UserList';
-
-
-let { PropTypes } = React;
 
 export default class Body extends React.Component {
 
@@ -15,7 +12,7 @@ export default class Body extends React.Component {
     users: PropTypes.array.isRequired
   };
 
-  render() {
+  render = () => {
     return (
       <div className={styles.body}>
         <h1 className={styles.header}>React CRUD Sample</h1>
@@ -26,5 +23,5 @@ export default class Body extends React.Component {
         </section>
       </div>
     );
-  }
+  };
 }

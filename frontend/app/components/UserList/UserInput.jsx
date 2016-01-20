@@ -1,5 +1,6 @@
 import styles from './_UserList.scss';
 import React from 'react';
+import AppActions from '../../actions/AppActions';
 
 let {Component, PropTypes} = React;
 
@@ -14,8 +15,7 @@ export default class UserInput extends Component {
   };
 
   static propTypes = {
-    user: PropTypes.object,
-    onSave: PropTypes.func.isRequired
+    user: PropTypes.object
   };
 
   state = {
@@ -26,7 +26,7 @@ export default class UserInput extends Component {
     }
   };
 
-  render() {
+  render = () => {
     // TODO optionはハードコードしておきたくない
     return (
       <form className={styles.form}>
@@ -46,7 +46,7 @@ export default class UserInput extends Component {
           <option value="3">Colorful Corporation</option>
         </select>
 
-        <a href="#" onClick={this.add.bind(this)}>Save</a>
+        <a href="#" onClick={this.add}>Save</a>
       </form>
     );
   };
@@ -59,7 +59,8 @@ export default class UserInput extends Component {
 
   add = (e) => {
     e.preventDefault();
-    this.props.onSave(this.state.user);
+    console.log(this.state.user);
+    AppActions.createUser(this.state.user);
     this.setState({user: {}});
   };
 }

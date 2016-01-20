@@ -5,6 +5,7 @@ import {
   USERS_GET_SUCCESS,
   USERS_GET_ERROR,
   USER_CREATED,
+  USER_EDITED,
   USER_DELETED,
   USER_CREATE_ERROR,
   USER_UPDATED
@@ -32,7 +33,11 @@ AppDispatcher.register((action) => {
   case USER_CREATED:
     store.set(action.user);
     break;
+  case USER_EDITED:
+    store.emitChange();
+    break;
   case USER_DELETED:
+    console.log(action.user);
     store.remove(action.user);
     break;
   case USERS_GET_SUCCESS:
@@ -43,6 +48,7 @@ AppDispatcher.register((action) => {
   case USER_CREATE_ERROR:
     break;
   default:
+          console.log(this.data);
   }
 });
 

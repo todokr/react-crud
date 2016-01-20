@@ -15,20 +15,22 @@ export default class App extends React.Component {
 
   state = getAppState();
 
-  componentDidMount() {
+  componentDidMount = () => {
     ItemsStore.addChangeListener(this.onChange);
     AppActions.getUsers();
-  }
+  };
 
-  componentWillUnmount() {
+  componentWillUnmount = () =>{
     ItemsStore.removeChangeListener(this.onChange);
-  }
+  };
 
   onChange = () => {
+    console.log(ItemsStore.getAll());
     this.setState(getAppState());
-  }
 
-  render() {
+  };
+
+  render = () => {
     return (
       <div className={styles.app}>
         <Body users={this.state.users}/>

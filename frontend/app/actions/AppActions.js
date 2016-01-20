@@ -18,7 +18,7 @@ export default {
           actionType: USERS_GET_SUCCESS,
           users: res.data.users
         });
-      }).catch(() => {
+      }).catch((e) => {
         AppDispatcher.dispatch({
           actionType: USERS_GET_ERROR
         });
@@ -26,7 +26,8 @@ export default {
   },
 
   createUser: (user) => {
-    WebAPI.createUser(user).then(() => {
+    WebAPI.createUser(user).then((res) => {
+      user.id = res.data.userId;
       AppDispatcher.dispatch({
         actionType: USER_CREATED,
         user: user
@@ -34,11 +35,40 @@ export default {
     });
   },
 
+  editUser: (user) => {
+    WebAPI.editUser(user).then(() => {
+      WebAPI.getUsers().then((res) => {
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_SUCCESS,
+          users: res.data.users
+        });
+      }).catch((e) => {
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_ERROR
+        });
+      });
+    }).catch((e) => {
+      AppDispatcher.dispatch({
+        actionType: USERS_GET_ERROR
+      });
+    });
+  },
+
   deleteUser: (user) => {
     WebAPI.deleteUser(user.id).then(() => {
+      WebAPI.getUsers().then((res) => {
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_SUCCESS,
+          users: res.data.users
+        });
+      }).catch((e) => {
+        AppDispatcher.dispatch({
+          actionType: USERS_GET_ERROR
+        });
+      });
+    }).catch((e) => {
       AppDispatcher.dispatch({
-        actionType: USER_DELETED,
-        user: user
+        actionType: USERS_GET_ERROR
       });
     });
   }

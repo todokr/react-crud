@@ -1,5 +1,6 @@
 import styles from './_UserList.scss';
 import React, {Component, PropTypes} from 'react';
+import AppActions from '../../actions/AppActions';
 
 export default class EditingUser extends Component {
 
@@ -13,9 +14,7 @@ export default class EditingUser extends Component {
 
   static propTypes = {
     user: PropTypes.object,
-    onSave: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onCancel: PropTypes.func.isRequired
   };
 
   state = {
@@ -26,8 +25,27 @@ export default class EditingUser extends Component {
     }
   };
 
+  handleChange = (e) => {
+    const strVal = e.target.value;
+    this.state.user[e.target.name] = (strVal === '' || isNaN(Number(strVal))) ? strVal : Number(strVal);
+    this.setState(this.state);
+    console.log(this.state.user);
+  };
 
-  render() {
+  save = (e) => {
+    e.preventDefault();
+    console.log(this.state.user);
+    this.props.onCancel();
+    AppActions.editUser(this.state.user);
+  };
+
+  remove = (e) => {
+    e.preventDefault();
+    this.props.onCancel();
+    AppActions.deleteUser(this.state.user);
+  };
+
+  render = () => {
     return (
       <div className={styles.userInner}>
         <input
@@ -45,10 +63,10 @@ export default class EditingUser extends Component {
           <option value="2">Brilliant co.,ltd.</option>
           <option value="3">Colorful Corporation</option>
         </select>
-        <a href="#" className={styles.save} onClick={this.props.onSave.bind(this)}>Save</a>
+        <a href="#" className={styles.save} onClick={this.save}>Save</a>
         <a href="#" className={styles.cancel} onClick={this.props.onCancel}>Cancel</a>
-        <span className={styles.deleteWrapper}><a href="#" className={styles.delete} onClick={this.props.onDelete}>Delete</a></span>
+        <span className={styles.deleteWrapper}><a href="#" className={styles.delete} onClick={this.remove}>Delete</a></span>
       </div>
     );
-  }
+  };
 }

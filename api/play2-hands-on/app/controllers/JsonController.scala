@@ -56,8 +56,8 @@ class JsonController @Inject()(val dbConfigProvider: DatabaseConfigProvider) ext
     rs.body.validate[UserForm].map { form =>
       // OKの場合はユーザを登録
       val user = UsersRow(0, form.name, form.companyId)
-      db.run(Users += user).map { _ =>
-        Ok(Json.obj("result" -> "success"))
+      db.run((Users returning Users.map(_.id)) += user).map { u =>
+        Ok(Json.obj("userId" -> u))
       }
     }.recoverTotal { e =>
       // NGの場合はバリデーションエラーを返す
