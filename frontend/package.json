@@ -74,7 +74,7 @@
     "postcss-loader": "^0.5.1",
     "react-hot-loader": "^1.2.8",
     "rimraf": "^2.5.0",
-    "sass-loader": "^1.0.2",
+    "sass-loader": "^3.1.2",
     "sinon": "^1.15.4",
     "source-map-support": "^0.3.2",
     "style-loader": "^0.12.3",
