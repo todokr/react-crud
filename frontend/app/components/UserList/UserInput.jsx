@@ -29,7 +29,7 @@ export default class UserInput extends Component {
   render = () => {
     // TODO optionはハードコードしておきたくない
     return (
-      <form className={styles.form}>
+      <form ref="inputForm" className={styles.form}>
         <input
           placeholder='User Name'
           name="name"
@@ -59,8 +59,7 @@ export default class UserInput extends Component {
 
   add = (e) => {
     e.preventDefault();
-    console.log(this.state.user);
     AppActions.createUser(this.state.user);
-    this.setState({user: {}});
+    this.setState({user:{}});
   };
 }

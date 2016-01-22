@@ -38,16 +38,16 @@
     display: inline-block;
     height: 30px;
     line-height: 30px;
-    padding: 0 10px;
+    padding: 0 20px 0 10px;
     background: #fff;
     border: 1px #ddd solid;
     box-shadow: 0 1px 0 darken(#ddd, 10%) inset;
     border-radius: 2px;
   }
 
-  .save {@include btn($btn-xs, $btn-primary);}
-  .cancel {@include btn($btn-xs, $btn-default);}
-  .delete {@include btn($btn-xs, $btn-danger);}
+  .save {@include btn($btn-s, $btn-primary);}
+  .cancel {@include btn($btn-s, $btn-default);}
+  .delete {@include btn($btn-s, $btn-danger);}
 
   .deleteWrapper {
     display: inline-block;
@@ -60,12 +60,24 @@
 
 .name {
   display: inline-block;
+  height: 32px;
+  line-height: 32px;
   width: 200px;
-  color: $paper-grey-700;
+  padding: 0 11px;
+  font-size: 12px;
+  color: $paper-grey-900;
+  font-weight: normal;
+  box-sizing: border-box;
 }
 
-.userId {
-  color: $paper-grey-500;
+.companyName {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 11px;
+  color: $paper-grey-900;
+  font-size: 12px;
+  box-sizing: border-box;
 }
 
 .button {
@@ -105,17 +117,16 @@
   }
 
   select {
-    -webkit-appearance: button;
-    -moz-appearance: button;
     appearance: button;
     display: inline-block;
     height: 40px;
     line-height: 40px;
-    padding: 0 10px;
+    padding: 0 20px 0 10px;
     background: #fff;
     border: 1px #ddd solid;
     box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
     border-radius: 4px;
+
   }
 
 }

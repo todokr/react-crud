@@ -55,6 +55,7 @@ export default class EditingUser extends Component {
           onChange={this.handleChange}
         />
         <select
+          className={styles.companySelect}
           name="companyId"
           defaultValue={this.state.user.companyId}
           onChange={this.handleChange}

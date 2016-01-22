@@ -1,0 +1,51 @@
+@import "toolkit";
+
+.searchBox {
+  padding: 0 10px;
+  height: 65px;
+  line-height: 65px;
+  background: $paper-grey-300;
+  box-shadow: 0 3px 0 $paper-grey-400;
+  text-align: right;
+
+  input {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 400px;
+    padding: 0 10px;
+    border: 1px #ddd solid;
+    box-shadow: 0 3px 0 darken(#ddd, 10%) inset;
+    border-radius: 4px;
+  }
+
+  p {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 10px 0 0;
+    padding: 0 15px;
+    background: $paper-grey-100;
+    border-radius: 3px;
+    font-size: 13px;
+    position: relative;
+    top: -1px;
+    color: $paper-grey-500;
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      border: 6px transparent solid;
+      border-left-color: $paper-grey-100;
+      right: -12px;
+      top: 50%;
+      margin-top: -6px;
+    }
+  }
+  .count {
+    font-weight: bold;
+    color: $paper-grey-600;
+  }
+}

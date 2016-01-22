@@ -25,7 +25,6 @@ export default class App extends React.Component {
   };
 
   onChange = () => {
-    console.log(ItemsStore.getAll());
     this.setState(getAppState());
 
   };

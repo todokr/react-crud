@@ -15,13 +15,14 @@ export default class UserList extends Component {
 
   render = () => {
     return (
+
       <div className={styles.body}>
-        <UserInput />
         <ul className={styles.users}>
           {this.props.users.map((user) => {
             return (<User key={user.id} user={user} />);
           }, this)}
         </ul>
+        <UserInput />
       </div>
     );
   };

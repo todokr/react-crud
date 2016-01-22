@@ -18,10 +18,17 @@ export default class ShowingUser extends Component {
     onEdit: PropTypes.func.isRequired
   };
 
+  companyMaster = [
+    'undefined',
+    'Awesome Inc',
+    'Brilliant co.,ltd.',
+    'Colorful Corporation'
+  ];
+
   render = () => {
     return (
       <a href="#" className={styles.userInner} onClick={this.handleClick}>
-        <h3 className={styles.name}>{this.props.user.name}</h3> - {this.props.user.companyId}
+        <h3 className={styles.name}>{this.props.user.name}</h3><span className={styles.companyName}>{this.companyMaster[this.props.user.companyId]}</span>
       </a>
     );
   };
