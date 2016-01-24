@@ -22,7 +22,6 @@ export default class UserSearch extends Component {
   };
 
   onChange = () => {
-    console.log('onchange');
     this.setState({
       users: getAppState().users
     });
