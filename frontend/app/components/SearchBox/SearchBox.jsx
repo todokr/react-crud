@@ -9,9 +9,10 @@ export default class SearchBox extends React.Component {
   };
 
   render = () => {
+    const label = (this.props.count > 1) ? 'users' : 'user';
     return(
       <div className={styles.searchBox}>
-        <p>Result: <span className={styles.count}>{this.props.count}</span></p>
+        <p>Found: <span className={styles.count}>{this.props.count}</span> {label}</p>
         <input
           type="text"
           ref="searchInput"
