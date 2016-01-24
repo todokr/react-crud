@@ -6,9 +6,15 @@ import './scss/app.scss';
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/App/App';
+import { createHistory, createHashHistory } from 'history';
+import Root from './components/Root/Root';
+
+const rootElem = document.getElementById('app');
+const history = process.env.NODE_ENV === 'production' ?
+  createHashHistory() :
+  createHistory();
 
 ReactDom.render(
-  <App />,
-  document.getElementById('app')
+  <Root history={history} />,
+  rootElem
 );

@@ -1,0 +1,11 @@
+@import "toolkit";
+
+.pageTitle {
+  padding: 20px 30px;
+  background: $paper-grey-100;
+  color: rgba(0,0,0,$dark-secondary-opacity);
+}
+
+.lead {
+  padding: 20px 30px;
+}
