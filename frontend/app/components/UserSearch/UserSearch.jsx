@@ -24,10 +24,9 @@ export default class UserSearch extends Component {
   onChange = () => {
     console.log('onchange');
     this.setState({
-      users: getAppState().users,
-      filteredData: getAppState().users
+      users: getAppState().users
     });
-    console.dir(this.state);
+    this.doSearch(this.state.query);
   };
 
   state = {
