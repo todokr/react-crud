@@ -2,7 +2,7 @@
 
 ## Using
 - React 0.14
-- WebPack
+- webpack
   - babel-loader 
   - sass-loader
   - style-loader
